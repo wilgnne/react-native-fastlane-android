@@ -20,6 +20,6 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag wilgnne/react-native-fastlane-android:$(date +%s)
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/react-native-fastlane-android
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/react-native-fastlane-android
