@@ -4,14 +4,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get -y install unzip curl \
     && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-    && apt-get -y install openjdk-8-jdk nodejs \
+    && apt-get -y install openjdk-13-jdk nodejs \
     && apt-get clean \
     && npm install --global yarn \
     && gem install bundler
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
-    JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" \
+    JAVA_HOME="/usr/lib/jvm/java-13-openjdk-amd64" \
     PATH="$JAVA_HOME/bin:$PATH" \
     ANDROID_SDK_ROOT="/root/.android" \
     ANDROID_NDK_HOME="/root/.android/ndk"
